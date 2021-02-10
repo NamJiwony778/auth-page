@@ -12,7 +12,7 @@ const app = express();
 //     origin: "http://localhost:3000"
 //   };
   
-app.use(cors);
+app.use(cors());
 
 app.use(bodyParser.json());
 
