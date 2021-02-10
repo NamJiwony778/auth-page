@@ -6,7 +6,7 @@ const path = require('path');
 
 const app = express();
 
-const routes = require('./routes/auth.routes');
+// const routes = require('./routes/auth.routes');
 
 var corsOptions = {
     origin: "http://localhost:3000"
@@ -29,15 +29,14 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
-app.use('/', routes);
 
 if(process.env.NODE_ENV === 'production') {
-  app.use(express.static('../frontend/build'));
+  app.use(express.static(path.join('../frontend/build')));
 }
 
 
 const db = require("./models");
-// require('./routes/auth.routes')(app);
+require('./routes/auth.routes')(app);
 
 db.mongoose
   .connect(process.env.MONGODB_URI || `mongodb+srv://admin:admin@bookstore.ixyku.mongodb.net/omadatek_db?retryWrites=true&w=majority`, {
