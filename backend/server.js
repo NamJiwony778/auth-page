@@ -29,11 +29,11 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
-if(process.env.NODE_ENV === 'production') {
+// if(process.env.NODE_ENV === 'production') {
   app.use(express.static('../frontend/build'));
-}
+// }
 
-app.use(routes);
+app.get('/', app.use(express.static('../frontend/build')));
 
 const db = require("./models");
 require('./routes/auth.routes')(app);
