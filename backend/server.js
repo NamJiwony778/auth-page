@@ -20,10 +20,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 
-app.get("/", (req, res) => {
-    // res.json({ message: "Welcome to application." });
-    app.use(express.static(path.join('../frontend/build')));
-});
+// app.get("/", (req, res) => {
+//     // res.json({ message: "Welcome to application." });
+//     app.use(express.static(path.join('../frontend/build')));
+// });
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("frontend/build"));
+}
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
