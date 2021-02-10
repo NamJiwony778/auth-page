@@ -24,6 +24,9 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static('../frontend/build'));
+}
 
 const db = require("./models");
 require('./routes/auth.routes')(app);
@@ -43,6 +46,3 @@ db.mongoose
   
   app.use('/uploads', express.static(path.join('uploads')));
 
-  if(process.env.NODE_ENV === 'production') {
-    app.use(express.static('../frontend/build'));
-  }
