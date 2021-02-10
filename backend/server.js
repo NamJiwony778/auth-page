@@ -3,7 +3,10 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 
+
 const app = express();
+
+const routes = require('./routes/auth.routes');
 
 var corsOptions = {
     origin: "http://localhost:3000"
@@ -14,6 +17,8 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use('/', routes);
 
 // app.get("/", (req, res) => {
 //     res.json({ message: "Welcome to application." });
