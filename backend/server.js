@@ -8,11 +8,11 @@ const app = express();
 
 // const routes = require('./routes/auth.routes');
 
-var corsOptions = {
-    origin: "http://localhost:3000"
-  };
+// var corsOptions = {
+//     origin: "http://localhost:3000"
+//   };
   
-app.use(cors(corsOptions));
+app.use(cors);
 
 app.use(bodyParser.json());
 
