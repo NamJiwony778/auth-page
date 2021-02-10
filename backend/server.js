@@ -30,9 +30,9 @@ app.listen(PORT, () => {
 });
 
 
-if(process.env.NODE_ENV === 'production') {
-  app.get('/', express.static(path.join('../frontend/build')));
-}
+
+  app.use('/', express.static(path.join('../frontend/build')));
+
 
 
 const db = require("./models");
