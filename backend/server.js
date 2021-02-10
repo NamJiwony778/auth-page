@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/', cors(corsOptions));
+
 
 // app.get("/", (req, res) => {
 //     res.json({ message: "Welcome to application." });
@@ -32,6 +32,8 @@ app.listen(PORT, () => {
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static('../frontend/build'));
 }
+
+app.use(routes);
 
 const db = require("./models");
 require('./routes/auth.routes')(app);
