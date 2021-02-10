@@ -31,7 +31,7 @@ app.listen(PORT, () => {
 
 
 if(process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join('../frontend/build')));
+  app.get('/', express.static(path.join('../frontend/build')));
 }
 
 
