@@ -29,7 +29,7 @@ const db = require("./models");
 require('./routes/auth.routes')(app);
 
 db.mongoose
-  .connect(`mongodb+srv://admin:admin@bookstore.ixyku.mongodb.net/omadatek_db?retryWrites=true&w=majority`, {
+  .connect(process.env.MONGODB_URI || `mongodb+srv://admin:admin@bookstore.ixyku.mongodb.net/omadatek_db?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -42,3 +42,7 @@ db.mongoose
   });
   
   app.use('/uploads', express.static(path.join('uploads')));
+
+  if(process.env.NODE_ENV === 'production') {
+    app.use(express.static('frontend/build'));
+  }
