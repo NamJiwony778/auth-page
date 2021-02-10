@@ -20,9 +20,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 
-// app.get("/", (req, res) => {
-//     res.json({ message: "Welcome to application." });
-// });
+app.get("/", (req, res) => {
+    // res.json({ message: "Welcome to application." });
+    app.use(express.static(path.join('../frontend/build')));
+});
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
@@ -31,7 +32,6 @@ app.listen(PORT, () => {
 
 
 
-  app.use(express.static(path.join('../frontend/build')));
 
 
 
