@@ -31,7 +31,7 @@ app.listen(PORT, () => {
 
 
 
-  app.use('/', express.static(path.join('../frontend/build')));
+  app.use(express.static(path.join('../frontend/build')));
 
 
 
