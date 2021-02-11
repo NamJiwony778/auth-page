@@ -1,7 +1,7 @@
 import axios from "axios";
 import authHeader from './auth-header';
 
-const API_URL = process.env.NODE_ENV + "/signup" || "http://localhost:3001/api/";
+const API_URL = process.env.NODE_ENV + "/" || "http://localhost:3001/api/";
 
 class UserService {
     getProfile() {
