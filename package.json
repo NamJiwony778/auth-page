@@ -2,6 +2,7 @@
   "name": "login_page",
   "version": "1.0.0",
   "engines": {
+    "npm":"6.14.8",
     "node": "12.18.4"
   },
   "description": "",
