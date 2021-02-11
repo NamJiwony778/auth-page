@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = process.env.NODE_ENV === "production"  || "http://localhost:3001/api/auth/";
+const API_URL = process.env.NODE_ENV   || "http://localhost:3001/api/auth/";
 
 class AuthService {
   login(email, password) {
