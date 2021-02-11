@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //   }
 
 app.get('*', (req, res) => {
-  res.sendFile(express.static(path.join(__dirname, 'frontend/build/index.html')));
+  res.send(express.static('frontend/build/index.html'));
 });
 
 const PORT = process.env.PORT || 3001;
