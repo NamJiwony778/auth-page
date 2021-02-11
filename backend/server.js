@@ -16,13 +16,12 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/*', (req, res) => {
 
 if (process.env.NODE_ENV === "production") {
-  // app.use(express.static("frontend/build"));
-  res.send(express.static("frontend/build"));
+    app.use(express.static("frontend/build"));
+  
   }
-});
+
 
 
 const PORT = process.env.PORT || 3001;
