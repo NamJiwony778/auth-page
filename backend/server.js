@@ -6,7 +6,7 @@ const path = require('path');
 
 const app = express();
 
-const routes = require('./routes/auth.routes').Router();
+// const routes = require('./routes/auth.routes').Router();
 
   
 app.use(cors());
@@ -27,8 +27,8 @@ app.listen(PORT, () => {
 
 
 const db = require("./models");
-app.use(routes);
-// require('./routes/auth.routes')(app);
+// app.use(routes);
+require('./routes/auth.routes')(app);
 
 db.mongoose
   .connect(process.env.MONGODB_URI || `mongodb+srv://admin:admin@bookstore.ixyku.mongodb.net/omadatek_db?retryWrites=true&w=majority`, {
