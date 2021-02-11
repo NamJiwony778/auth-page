@@ -5,7 +5,7 @@ const API_URL = process.env.NODE_ENV   || "http://localhost:3001/api/auth/";
 class AuthService {
   login(email, password) {
     return axios
-      .post(API_URL + "signin", {
+      .post(API_URL + "/signin", {
         email,
         password
       })
@@ -30,7 +30,7 @@ class AuthService {
     formData.append("email", email);
     formData.append("password", password);
 
-    return axios.post(API_URL + "signup", formData,  {
+    return axios.post(API_URL + "/signup", formData,  {
       file,
       username,
       email,

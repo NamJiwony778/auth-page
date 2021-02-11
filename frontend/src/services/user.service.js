@@ -5,7 +5,7 @@ const API_URL = process.env.NODE_ENV  || "http://localhost:3001/api/";
 
 class UserService {
     getProfile() {
-        return axios.get(API_URL + 'profile', { headers: authHeader() });
+        return axios.get(API_URL + '/profile', { headers: authHeader() });
       }
    
 }
